@@ -16,7 +16,10 @@ import com.example.app_evaluacion_mqtt.MainActivity;
 import com.example.app_evaluacion_mqtt.Modelo.Gasto;
 import com.example.app_evaluacion_mqtt.Modelo.Ingreso;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Currency;
+import java.util.Locale;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.viewHolder> implements View.OnClickListener {
     ArrayList<MainActivity.Operaciones> operaciones;
@@ -47,7 +50,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.viewHolder> implements
 
             for(int x=0; x<ingresos.size();x++){
                 if(ingresos.get(x).getId_ingreso()==operaciones.get(position).getId()){
-                    holder.monto.setText(String.valueOf(ingresos.get(x).getMonto()));
+                    holder.monto.setText(String.valueOf(formatearMontos(ingresos.get(x).getMonto())));
                 }
             }
         }else if(operaciones.get(position).getTipo().equals("GASTO")){
@@ -56,7 +59,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.viewHolder> implements
 
             for(int x=0; x<gastos.size();x++){
                 if(gastos.get(x).getId_gasto()==operaciones.get(position).getId()){
-                    holder.monto.setText(String.valueOf(gastos.get(x).getMonto()));
+                    holder.monto.setText(String.valueOf(formatearMontos(gastos.get(x).getMonto())));
                 }
             }
         }
@@ -76,6 +79,13 @@ public class Adapter extends RecyclerView.Adapter<Adapter.viewHolder> implements
         if(listener!=null){
             listener.onClick(v);
         }
+    }
+
+    public String formatearMontos(int monto){
+        Locale cl = new Locale("es", "CL");
+        Currency dollars = Currency.getInstance(cl);
+        NumberFormat clpFormat = NumberFormat.getCurrencyInstance(cl);
+        return clpFormat.format(monto);
     }
 
     public class viewHolder extends RecyclerView.ViewHolder{

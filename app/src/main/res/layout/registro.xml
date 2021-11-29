@@ -11,47 +11,41 @@
         android:orientation="horizontal">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1">
 
             <TextView
                 android:id="@+id/operacion"
-                android:layout_width="116dp"
-                android:layout_height="23dp"
+                android:layout_width="118dp"
+                android:layout_height="20dp"
                 android:layout_weight="1"
-                android:gravity="center"
+                android:autoText="false"
                 android:text="TextView"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/fecha"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/fecha"
-                android:layout_width="181dp"
-                android:layout_height="24dp"
+                android:layout_width="174dp"
+                android:layout_height="20dp"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:text="TextView"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/monto"
                 app:layout_constraintStart_toEndOf="@+id/operacion"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/monto"
-                android:layout_width="107dp"
-                android:layout_height="23dp"
+                android:layout_width="119dp"
+                android:layout_height="21dp"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:text="TextView"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@+id/fecha"
                 app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

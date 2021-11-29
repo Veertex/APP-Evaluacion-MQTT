@@ -18,7 +18,10 @@ import com.example.app_evaluacion_mqtt.Controlador.DBIngreso;
 import com.example.app_evaluacion_mqtt.Modelo.Gasto;
 import com.example.app_evaluacion_mqtt.Modelo.Ingreso;
 import java.sql.Timestamp;
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Currency;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     DBIngreso dbIngreso;
@@ -75,6 +78,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+    public String formatearMontos(int monto){
+        Locale cl = new Locale("es", "CL");
+        Currency dollars = Currency.getInstance(cl);
+        NumberFormat clpFormat = NumberFormat.getCurrencyInstance(cl);
+        return clpFormat.format(monto);
+    }
 
     public void añadirIngreso(View view){
         this.dbIngreso.insertarDatos(dbCapital.cargarRegistros().get(0).getId(),Integer.parseInt(this.textMonto.getText().toString()));
@@ -108,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
 
 
             dbCapital.actualizarRegistro(dbCapital.cargarRegistros().get(0).getId(),total);
-            this.montoActualCapital.setText(String.valueOf(dbCapital.cargarRegistros().get(0).getMonto()));
+            this.montoActualCapital.setText(String.valueOf(formatearMontos(dbCapital.cargarRegistros().get(0).getMonto())));
 
         }
     }

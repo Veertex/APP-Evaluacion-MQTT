@@ -2,6 +2,7 @@ package com.example.app_evaluacion_mqtt.Adaptador;
 
 import com.example.app_evaluacion_mqtt.*;
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,7 +51,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.viewHolder> implements
 
             for(int x=0; x<ingresos.size();x++){
                 if(ingresos.get(x).getId_ingreso()==operaciones.get(position).getId()){
-                    holder.monto.setText(String.valueOf(formatearMontos(ingresos.get(x).getMonto())));
+                    String string = String.valueOf(formatearMontos(ingresos.get(x).getMonto()));
+                    holder.monto.setText(string);
+                    holder.monto.setTextColor(Color.rgb(31, 133, 29));
                 }
             }
         }else if(operaciones.get(position).getTipo().equals("GASTO")){
@@ -59,7 +62,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.viewHolder> implements
 
             for(int x=0; x<gastos.size();x++){
                 if(gastos.get(x).getId_gasto()==operaciones.get(position).getId()){
-                    holder.monto.setText(String.valueOf(formatearMontos(gastos.get(x).getMonto())));
+                    String string = String.valueOf(formatearMontos(gastos.get(x).getMonto()));
+                    holder.monto.setText(string);
+                    holder.monto.setTextColor(Color.rgb(222, 10, 10));
                 }
             }
         }

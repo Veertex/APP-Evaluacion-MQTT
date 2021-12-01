@@ -6,30 +6,48 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="104dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="153dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/coins" />
+
+    <View
+        android:id="@+id/divider4"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        tools:layout_editor_absoluteX="-1dp" />
+
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="381dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="15dp"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="21dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2">
+        app:layout_constraintTop_toBottomOf="@+id/divider4">
 
         <TextView
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Capital:"
+            android:text="Balance:"
             android:textSize="16sp" />
 
         <TextView
             android:id="@+id/montoActualCapital"
-            android:layout_width="81dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="right"
@@ -42,7 +60,7 @@
         android:layout_width="409dp"
         android:layout_height="1dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="1dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,11 +70,11 @@
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="380dp"
+        android:layout_width="370dp"
         android:layout_height="23dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="15dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="21dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,14 +82,14 @@
 
         <TextView
             android:id="@+id/operacion"
-            android:layout_width="wrap_content"
+            android:layout_width="28dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Operacion:" />
 
         <TextView
             android:id="@+id/fecha"
-            android:layout_width="118dp"
+            android:layout_width="106dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Fecha:" />
@@ -86,13 +104,12 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="382dp"
-        android:layout_height="206dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="370dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="21dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="15dp"
+        android:layout_marginEnd="21dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
@@ -111,103 +128,60 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="378dp"
-        android:layout_height="131dp"
+    <Button
+        android:id="@+id/button"
+        android:layout_width="125dp"
+        android:layout_height="40dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="17dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginTop="16dp"
+        android:onClick="añadirIngreso"
+        android:text="Añadir Ingreso"
+        android:textSize="10sp"
+        app:layout_constraintStart_toEndOf="@+id/textMonto"
+        app:layout_constraintTop_toBottomOf="@+id/divider2" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="125dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="271dp"
+        android:onClick="añadirGastos"
+        android:text="Añadir Gasto"
+        android:textSize="10sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider2">
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+    <EditText
+        android:id="@+id/textMonto"
+        android:layout_width="155dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="Monto"
+        android:inputType="number"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider2" />
 
-            <EditText
-                android:id="@+id/textMonto"
-                android:layout_width="164dp"
-                android:layout_height="48dp"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="12dp"
-                android:layout_weight="1"
-                android:ems="10"
-                android:hint="Monto"
-                android:inputType="number"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <Button
-                    android:id="@+id/button2"
-                    android:layout_width="162dp"
-                    android:layout_height="48dp"
-                    android:layout_marginStart="11dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="11dp"
-                    android:onClick="añadirGastos"
-                    android:text="Añadir Gasto"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/button" />
-
-                <Button
-                    android:id="@+id/button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="11dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:onClick="añadirIngreso"
-                    android:text="Añadir Ingreso"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </LinearLayout>
-
-    </LinearLayout>
+    <View
+        android:id="@+id/divider5"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintTop_toBottomOf="@+id/button2"
+        tools:layout_editor_absoluteX="42dp" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="252dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:text="Autor: Williams Torres."
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="104dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="153dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/coins" />
+        app:layout_constraintTop_toBottomOf="@+id/divider5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

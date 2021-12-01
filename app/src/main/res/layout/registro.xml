@@ -17,8 +17,8 @@
 
             <TextView
                 android:id="@+id/operacion"
-                android:layout_width="118dp"
-                android:layout_height="20dp"
+                android:layout_width="87dp"
+                android:layout_height="18dp"
                 android:layout_weight="1"
                 android:autoText="false"
                 android:text="TextView"
@@ -26,20 +26,24 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+
             <TextView
                 android:id="@+id/fecha"
-                android:layout_width="174dp"
+                android:layout_width="wrap_content"
                 android:layout_height="20dp"
+                android:layout_marginStart="8dp"
                 android:layout_weight="1"
                 android:text="TextView"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/operacion"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/monto"
-                android:layout_width="119dp"
-                android:layout_height="21dp"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginStart="32dp"
                 android:layout_weight="1"
                 android:text="TextView"
                 app:layout_constraintBottom_toBottomOf="parent"

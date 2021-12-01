@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -56,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
 
         this.adapter = new Adapter(operaciones,this);
         this.recyclerView.setAdapter(this.adapter);
-        this.recyclerView.smoothScrollToPosition(this.adapter.getItemCount());
 
         adapter = new Adapter(operaciones,this);
         recyclerView.setAdapter(adapter);
@@ -87,14 +87,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void añadirIngreso(View view){
         this.dbIngreso.insertarDatos(dbCapital.cargarRegistros().get(0).getId(),Integer.parseInt(this.textMonto.getText().toString()));
+        this.textMonto.setText("");
         Toast.makeText(this, "Registro ingresado!", Toast.LENGTH_SHORT).show();
         actualizar();
-
     }
     public void añadirGastos(View view){
         this.dbGasto.insertarDatos(dbCapital.cargarRegistros().get(0).getId(),Integer.parseInt(this.textMonto.getText().toString()));
+        this.textMonto.setText("");
         Toast.makeText(this, "Registro ingresado!", Toast.LENGTH_SHORT).show();
         actualizar();
+
     }
 
     public void mostrarMontoTotalInicio(){
@@ -117,7 +119,23 @@ public class MainActivity extends AppCompatActivity {
 
 
             dbCapital.actualizarRegistro(dbCapital.cargarRegistros().get(0).getId(),total);
-            this.montoActualCapital.setText(String.valueOf(formatearMontos(dbCapital.cargarRegistros().get(0).getMonto())));
+
+
+            if (total<0){
+                String string =String.valueOf(formatearMontos(dbCapital.cargarRegistros().get(0).getMonto()));
+                this.montoActualCapital.setTextColor(Color.rgb(222, 10, 10));
+                this.montoActualCapital.setText(string);
+            }
+            if (total==0){
+                String string =String.valueOf(formatearMontos(dbCapital.cargarRegistros().get(0).getMonto()));
+                this.montoActualCapital.setTextColor(Color.rgb(244, 208, 63 ));
+                this.montoActualCapital.setText(string);
+            }
+            if(total>0){
+                String string =String.valueOf(formatearMontos(dbCapital.cargarRegistros().get(0).getMonto()));
+                this.montoActualCapital.setTextColor(Color.rgb(31, 133, 29));
+                this.montoActualCapital.setText(string);
+            }
 
         }
     }
@@ -145,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
 
         for(int x=0;x<operacionesOrdenadas.size();x++){
             if(x!=0){
-                if(operacionesOrdenadas.get(x-1).getFecha().after(operacionesOrdenadas.get(x).getFecha())){
+                if(operacionesOrdenadas.get(x-1).getFecha().before(operacionesOrdenadas.get(x).getFecha())){
 
                     Operaciones operacionCambio = new Operaciones(operacionesOrdenadas.get(x).getId(),
                             operacionesOrdenadas.get(x).getTipo(),
@@ -161,7 +179,7 @@ public class MainActivity extends AppCompatActivity {
 
                     if(x!=0){
                         for(int y=x-1;y>0;y--){
-                            if(operacionesOrdenadas.get(y-1).getFecha().after(operacionesOrdenadas.get(y).getFecha())) {
+                            if(operacionesOrdenadas.get(y-1).getFecha().before(operacionesOrdenadas.get(y).getFecha())) {
 
                                 Operaciones operacionCambio2 = new Operaciones(operacionesOrdenadas.get(y).getId(),
                                         operacionesOrdenadas.get(y).getTipo(),

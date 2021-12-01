@@ -1,4 +1,4 @@
-package com.example.app_evaluacion_mqtt.Modelo;
+package com.app_balance.app_evaluacion_mqtt.Modelo;
 
 public class Capital {
     private int id_capital,monto;

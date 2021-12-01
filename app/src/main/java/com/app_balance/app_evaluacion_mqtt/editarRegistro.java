@@ -1,4 +1,4 @@
-package com.example.app_evaluacion_mqtt;
+package com.app_balance.app_evaluacion_mqtt;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,9 +8,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.app_evaluacion_mqtt.Controlador.DBCapital;
-import com.example.app_evaluacion_mqtt.Controlador.DBGasto;
-import com.example.app_evaluacion_mqtt.Controlador.DBIngreso;
+import com.app_balance.app_evaluacion_mqtt.Controlador.DBGasto;
+import com.app_balance.app_evaluacion_mqtt.Controlador.DBIngreso;
 
 public class editarRegistro extends AppCompatActivity {
     EditText monto2,operacion2,fecha2;

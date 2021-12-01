@@ -1,4 +1,4 @@
-package com.example.app_evaluacion_mqtt.Controlador;
+package com.app_balance.app_evaluacion_mqtt.Controlador;
 
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import androidx.annotation.Nullable;
 
-import com.example.app_evaluacion_mqtt.Modelo.Capital;
+import com.app_balance.app_evaluacion_mqtt.Modelo.Capital;
 
 import java.util.ArrayList;
 

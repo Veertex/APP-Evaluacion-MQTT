@@ -1,4 +1,4 @@
-package com.example.app_evaluacion_mqtt;
+package com.app_balance.app_evaluacion_mqtt;
 
 import org.junit.Test;
 

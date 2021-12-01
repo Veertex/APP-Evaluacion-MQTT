@@ -1,4 +1,4 @@
-package com.example.app_evaluacion_mqtt;
+package com.app_balance.app_evaluacion_mqtt;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,12 +12,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.app_evaluacion_mqtt.Adaptador.Adapter;
-import com.example.app_evaluacion_mqtt.Controlador.DBCapital;
-import com.example.app_evaluacion_mqtt.Controlador.DBGasto;
-import com.example.app_evaluacion_mqtt.Controlador.DBIngreso;
-import com.example.app_evaluacion_mqtt.Modelo.Gasto;
-import com.example.app_evaluacion_mqtt.Modelo.Ingreso;
+import com.app_balance.app_evaluacion_mqtt.Controlador.DBCapital;
+import com.app_balance.app_evaluacion_mqtt.Controlador.DBGasto;
+import com.app_balance.app_evaluacion_mqtt.Adaptador.Adapter;
+import com.app_balance.app_evaluacion_mqtt.Controlador.DBIngreso;
+import com.app_balance.app_evaluacion_mqtt.Modelo.Gasto;
+import com.app_balance.app_evaluacion_mqtt.Modelo.Ingreso;
+
 import java.sql.Timestamp;
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -61,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         adapter = new Adapter(operaciones,this);
         recyclerView.setAdapter(adapter);
         ArrayList<Operaciones> finalOperaciones = operaciones;
-        Intent editarRegistro = new Intent(this, com.example.app_evaluacion_mqtt.editarRegistro.class);
+        Intent editarRegistro = new Intent(this, com.app_balance.app_evaluacion_mqtt.editarRegistro.class);
         adapter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

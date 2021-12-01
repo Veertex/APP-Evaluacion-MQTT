@@ -1,21 +1,20 @@
-package com.example.app_evaluacion_mqtt.Adaptador;
+package com.app_balance.app_evaluacion_mqtt.Adaptador;
 
-import com.example.app_evaluacion_mqtt.*;
+import com.app_balance.app_evaluacion_mqtt.Controlador.DBGasto;
+import com.app_balance.app_evaluacion_mqtt.MainActivity;
+import com.app_balance.app_evaluacion_mqtt.Modelo.Gasto;
+import com.app_balance.app_evaluacion_mqtt.*;
 import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.app_evaluacion_mqtt.Controlador.DBGasto;
-import com.example.app_evaluacion_mqtt.Controlador.DBIngreso;
-import com.example.app_evaluacion_mqtt.MainActivity;
-import com.example.app_evaluacion_mqtt.Modelo.Gasto;
-import com.example.app_evaluacion_mqtt.Modelo.Ingreso;
+import com.app_balance.app_evaluacion_mqtt.Controlador.DBIngreso;
+import com.app_balance.app_evaluacion_mqtt.Modelo.Ingreso;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;

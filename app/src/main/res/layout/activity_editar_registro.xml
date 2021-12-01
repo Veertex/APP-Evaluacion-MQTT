@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".editarRegistro">
+    tools:context="com.app_balance.app_evaluacion_mqtt.editarRegistro">
 
     <EditText
         android:id="@+id/fecha2"

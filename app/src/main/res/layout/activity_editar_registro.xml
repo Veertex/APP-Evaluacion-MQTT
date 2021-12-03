@@ -6,29 +6,6 @@
     android:layout_height="match_parent"
     tools:context="com.app_balance.app_evaluacion_mqtt.editarRegistro">
 
-    <EditText
-        android:id="@+id/fecha2"
-        android:layout_width="379dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:enabled="false"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <EditText
-        android:id="@+id/monto2"
-        android:layout_width="186dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="5dp"
-        android:ems="10"
-        android:inputType="date"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -36,6 +13,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="Monto:"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -46,6 +24,7 @@
         android:layout_marginStart="156dp"
         android:layout_marginTop="16dp"
         android:text="Tipo Operacion:"
+        android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -56,14 +35,14 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="15dp"
         android:text="Fecha:"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/monto2" />
 
     <LinearLayout
-        android:layout_width="380dp"
-        android:layout_height="113dp"
+        android:layout_width="416dp"
+        android:layout_height="221dp"
         android:layout_marginStart="14dp"
-        android:layout_marginTop="26dp"
         android:layout_marginEnd="17dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -72,38 +51,42 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="377dp"
-            android:layout_height="113dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1">
 
             <Button
                 android:id="@+id/button4"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="12dp"
                 android:layout_weight="1"
+                android:gravity="center_horizontal|center_vertical"
                 android:onClick="actualizar"
                 android:text="Actualizar Registro"
+                android:textSize="10sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="387dp"
-            android:layout_height="114dp"
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1">
 
             <Button
                 android:id="@+id/button3"
                 android:layout_width="188dp"
-                android:layout_height="56dp"
-                android:layout_marginTop="32dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="3dp"
                 android:layout_weight="1"
+                android:gravity="center_horizontal|center_vertical"
                 android:onClick="eliminar"
                 android:text="Eliminar Registro"
+                android:textSize="10sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.8"
                 app:layout_constraintStart_toStartOf="parent"
@@ -117,7 +100,7 @@
         android:layout_width="409dp"
         android:layout_height="1dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="1dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintEnd_toEndOf="parent"
@@ -126,14 +109,47 @@
 
     <EditText
         android:id="@+id/operacion2"
-        android:layout_width="176dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="5dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:background="#EFEFCC"
         android:ems="10"
         android:enabled="false"
         android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/monto2"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <EditText
+        android:id="@+id/fecha2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="#EFEFCC"
+        android:ems="10"
+        android:enabled="false"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <EditText
+        android:id="@+id/monto2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:background="#EFEFCC"
+        android:ems="10"
+        android:inputType="date"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

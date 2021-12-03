@@ -7,14 +7,16 @@
     tools:context="com.app_balance.app_evaluacion_mqtt.MainActivity">
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="104dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="153dp"
-        android:layout_marginTop="16dp"
+        android:id="@+id/imageView"
+        android:layout_width="91dp"
+        android:layout_height="125dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="160dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/coins" />
+        app:srcCompat="@drawable/cashregister" />
 
     <View
         android:id="@+id/divider4"
@@ -22,37 +24,42 @@
         android:layout_height="1dp"
         android:layout_marginTop="16dp"
         android:background="?android:attr/listDivider"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        tools:layout_editor_absoluteX="-1dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="370dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="21dp"
-        android:layout_marginTop="3dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="21dp"
-        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider4">
 
         <TextView
             android:id="@+id/textView6"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Balance:"
-            android:textSize="16sp" />
+            android:background="#EFEFCC"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="Total:"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/montoActualCapital"
-            android:layout_width="80dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#EFEFCC"
+            android:fontFamily="sans-serif-condensed-medium"
             android:gravity="right"
             android:text="-"
-            android:textSize="16sp" />
+            android:textSize="20sp" />
     </LinearLayout>
 
     <View
@@ -68,50 +75,65 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout3"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="370dp"
-        android:layout_height="23dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="21dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="21dp"
-        android:orientation="horizontal"
+        android:layout_marginEnd="20dp"
+        android:background="#ABFF9800"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider">
 
         <TextView
-            android:id="@+id/operacion"
-            android:layout_width="28dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Operacion:" />
+            android:id="@+id/textView8"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:background="#9A4CBCCA"
+            android:text="Tipo:"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@+id/textView10"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="0dp" />
 
         <TextView
-            android:id="@+id/fecha"
-            android:layout_width="106dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Fecha:" />
+            android:id="@+id/montoTextView"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:background="#9A4CBCCA"
+            android:gravity="right"
+            android:text="-"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView10"
+            tools:layout_editor_absoluteY="0dp" />
 
         <TextView
-            android:id="@+id/monto"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Monto:" />
-    </LinearLayout>
+            android:id="@+id/textView10"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:background="#9A4CBCCA"
+            android:gravity="center_horizontal"
+            android:text="Fecha:"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@+id/montoTextView"
+            app:layout_constraintStart_toEndOf="@+id/textView8"
+            tools:layout_editor_absoluteY="0dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="370dp"
         android:layout_height="200dp"
         android:layout_marginStart="21dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="21dp"
+        android:background="#EFEFCC"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
     </androidx.recyclerview.widget.RecyclerView>
 
@@ -131,35 +153,43 @@
     <Button
         android:id="@+id/button"
         android:layout_width="125dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="#EFEFCC"
         android:onClick="añadirIngreso"
         android:text="Añadir Ingreso"
         android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textMonto"
         app:layout_constraintTop_toBottomOf="@+id/divider2" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="125dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="271dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="270dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="#EFEFCC"
         android:onClick="añadirGastos"
         android:text="Añadir Gasto"
         android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />
 
     <EditText
         android:id="@+id/textMonto"
-        android:layout_width="155dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="142dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="8dp"
         android:layout_weight="1"
+        android:background="#EFEFCC"
         android:ems="10"
-        android:hint="Monto"
+        android:hint="-"
         android:inputType="number"
         android:textSize="10sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -169,7 +199,7 @@
         android:id="@+id/divider5"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintTop_toBottomOf="@+id/button2"
         tools:layout_editor_absoluteX="42dp" />
@@ -177,9 +207,9 @@
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="19dp"
         android:layout_marginStart="252dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         android:text="Autor: Williams Torres."
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider5" />

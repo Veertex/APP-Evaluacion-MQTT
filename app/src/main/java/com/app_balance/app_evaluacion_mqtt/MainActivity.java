@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     Adapter adapter;
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,6 +85,9 @@ public class MainActivity extends AppCompatActivity {
         Locale cl = new Locale("es", "CL");
         Currency dollars = Currency.getInstance(cl);
         NumberFormat clpFormat = NumberFormat.getCurrencyInstance(cl);
+        this.textMonto.setHint(dollars.getSymbol());
+        TextView text = findViewById(R.id.montoTextView);
+        text.setText(dollars.getSymbol());
         return clpFormat.format(monto);
     }
 

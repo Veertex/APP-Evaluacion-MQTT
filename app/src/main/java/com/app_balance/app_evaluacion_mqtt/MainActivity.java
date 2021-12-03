@@ -93,18 +93,29 @@ public class MainActivity extends AppCompatActivity {
         return clpFormat.format(monto);
     }
 
+    public boolean verificarCampos(EditText editText){
+        if(editText.getText().toString().equals(String.valueOf("").trim())|editText.getText().toString()==null){
+            Toast.makeText(this,"Sin monto ("+this.dollars.getSymbol()+") a registrar!!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
+    }
+
     public void añadirIngreso(View view){
-        this.dbIngreso.insertarDatos(dbCapital.cargarRegistros().get(0).getId(),Integer.parseInt(this.textMonto.getText().toString()));
-        this.textMonto.setText("");
-        Toast.makeText(this, "Registro ingresado!", Toast.LENGTH_SHORT).show();
-        actualizar();
+        if(verificarCampos(textMonto)){
+            this.dbIngreso.insertarDatos(dbCapital.cargarRegistros().get(0).getId(),Integer.parseInt(this.textMonto.getText().toString()));
+            this.textMonto.setText("");
+            Toast.makeText(this, "Registro ingresado!", Toast.LENGTH_SHORT).show();
+            actualizar();
+        }
     }
     public void añadirGastos(View view){
-        this.dbGasto.insertarDatos(dbCapital.cargarRegistros().get(0).getId(),Integer.parseInt(this.textMonto.getText().toString()));
-        this.textMonto.setText("");
-        Toast.makeText(this, "Registro ingresado!", Toast.LENGTH_SHORT).show();
-        actualizar();
-
+        if(verificarCampos(textMonto)) {
+            this.dbGasto.insertarDatos(dbCapital.cargarRegistros().get(0).getId(),Integer.parseInt(this.textMonto.getText().toString()));
+            this.textMonto.setText("");
+            Toast.makeText(this, "Registro ingresado!", Toast.LENGTH_SHORT).show();
+            actualizar();
+        }
     }
 
     public void mostrarMontoTotalInicio(){

@@ -30,11 +30,13 @@ public class MainActivity extends AppCompatActivity {
     DBIngreso dbIngreso;
     DBGasto dbGasto;
     DBCapital dbCapital;
-    TextView montoActualCapital;
+    TextView montoActualCapital,text;
     EditText textMonto;
     RecyclerView recyclerView;
     Adapter adapter;
-
+    Locale cl;
+    Currency dollars;
+    NumberFormat clpFormat;
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,11 @@ public class MainActivity extends AppCompatActivity {
         this.dbCapital = new DBCapital(getApplicationContext());
         this.recyclerView=findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager( new LinearLayoutManager(this));
+        this.text = findViewById(R.id.montoTextView);
+        this.cl = new Locale("es", "CL");
+        this.dollars = Currency.getInstance(cl);
+        this.clpFormat = NumberFormat.getCurrencyInstance(cl);
+        this.text.setText(dollars.getSymbol());
         actualizar();
     }
 
@@ -82,12 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public String formatearMontos(int monto){
-        Locale cl = new Locale("es", "CL");
-        Currency dollars = Currency.getInstance(cl);
-        NumberFormat clpFormat = NumberFormat.getCurrencyInstance(cl);
-        this.textMonto.setHint(dollars.getSymbol());
-        TextView text = findViewById(R.id.montoTextView);
-        text.setText(dollars.getSymbol());
+        this.textMonto.setHint(this.dollars.getSymbol());
         return clpFormat.format(monto);
     }
 
